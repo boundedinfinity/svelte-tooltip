@@ -1,7 +1,12 @@
-export interface ToolTipEntry {
-
+export interface TTEntry {
+    title: string
+    abbr?: string
+    description?: string
+    references?: TTReference[]
 }
 
-export interface ToolTipReference {
-    
+export interface TTReference {
+    text?: string
+    url: string
+    description?: string
 }
