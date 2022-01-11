@@ -1,7 +1,7 @@
 <script type="ts">
   import store from "./store";
   import { fade } from "svelte/transition";
-  import { Ea } from "@boundedinfinity/svelte-ea";
+  import { Ea } from "@boundedinfinity/svelte-ea"
 
   interface Replacement {
     from: string;
@@ -23,20 +23,22 @@
 
 {#if $store}
   {#key $store}
-    <div in:fade class="animate-fade border-2 px-2 bg-slate-50 shadow-sm">
+    <div in:fade class="container">
       <h3>{@html bracket2bold($store.title)}</h3>
 
       {#if $store.abbr}
         <p>Abbreviation: <b>{$store.abbr}</b></p>
       {/if}
 
-      <hr />
-
       {#if $store.description}
-        <p>{@html $store.description}</p>
+        <hr />
+
+        <div>{@html $store.description}</div>
       {/if}
 
       {#if $store.references}
+        <hr />
+
         <p>References:</p>
         <ul>
           {#each $store.references as ref}
@@ -47,3 +49,19 @@
     </div>
   {/key}
 {/if}
+
+<style>
+  .container {
+    border-width: 2px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  li {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+</style>

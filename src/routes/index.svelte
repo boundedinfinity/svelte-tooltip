@@ -6,6 +6,13 @@
 
   const ghEntry: TTEntry = {
     title: "Github",
-    url: "https://www.github.com"
+    description: "this is a description",
+    references: [{ url: "https://www.github.com" }],
   };
 </script>
+
+<Inline entry={ghEntry} />
+
+<div>
+  <Display />
+</div>
